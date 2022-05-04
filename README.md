@@ -62,6 +62,8 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    `DB_PASSWORD=`
 >    
 >   ***Generar la Application Key***
+>    `cp .env.example .env`
+>    
 >    `php artisan key:generate`
 >    *Verificar que en el archivo .env exista la variable APP_KEY*   
 >    
