@@ -14,7 +14,7 @@ Este repositorio contiene el desarrollo de prueba llamado Larabank
 El sitio está construido en Laravel, por lo que antes de clonar el repositorio es necesario asegurarnos que tenemos instalado [Composer](https://getcomposer.org/) en nuestra computadora.
 
 >    ***Clonar el repositorio***   
->    ``` --- ```
+>    ``` gh repo clone hurbanom/levo-test ```
 >    
 >    ***Instalar sus dependencias***
 >    `composer install`
@@ -48,11 +48,17 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    `MAIL_ENCRYPTION=`
 >     
 >    *Variables para la conexión a la base de datos*
+>    
 >    `DB_CONNECTION=`
+>    
 >    `DB_HOST=`
+>    
 >    `DB_PORT=`
+>    
 >    `DB_DATABASE=`
+>    
 >    `DB_USERNAME=`
+>    
 >    `DB_PASSWORD=`
 >    
 >   ***Generar la Application Key***
