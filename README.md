@@ -25,8 +25,11 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    *Variables para el procesamiento de colas (Redis en este caso)*
 >    `
 >    QUEUE_CONNECTION=redis
+>    
 >    REDIS_HOST=
+>    
 >    REDIS_PASSWORD=
+>    
 >    REDIS_PORT=
 >    `
 >    
