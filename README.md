@@ -23,10 +23,12 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    
 >    ***Generar el archivo .env y agregar las variables de entorno necesarias***
 >    *Variables para el procesamiento de colas (Redis en este caso)*
->    `QUEUE_CONNECTION=redis`
->    `REDIS_HOST=`
->    `REDIS_PASSWORD=`
->    `REDIS_PORT=`
+>    `
+>    QUEUE_CONNECTION=redis
+>    REDIS_HOST=
+>    REDIS_PASSWORD=
+>    REDIS_PORT=
+>    `
 >    
 >    *Variables para el envío de correo (Mailtrap en este caso, que sirve para testear el envío de correos)*
 >    `MAIL_MAILER=`
