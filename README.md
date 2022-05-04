@@ -1,64 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Larabank
+Este repositorio contiene el desarrollo de prueba llamado Larabank
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Stack
 
-## About Laravel
+ - Laravel 8.75
+ - PHP >= 7.4.x
+ - Composer
+ - Base de Datos PostgreSQL >= 9.x o MySQL >= 8.x
+ - Redis >= 6.0.6 *(para el procesamiento de Queues)*
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instalación
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+El sitio está construido en Laravel, por lo que antes de clonar el repositorio es necesario asegurarnos que tenemos instalado [Composer](https://getcomposer.org/) en nuestra computadora.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+>    ***Clonar el repositorio***   
+>    ``` --- ```
+>    
+>    ***Instalar sus dependencias***
+>    `composer install`
+>    
+>    ***Crear la base de datos en PostgreSQL / MySQL***
+>    
+>    ***Generar el archivo .env y agregar las variables de entorno necesarias***
+>    *Variables para el procesamiento de colas (Redis en este caso)*
+>    `QUEUE_CONNECTION=redis`
+>    `REDIS_HOST=`
+>    `REDIS_PASSWORD=`
+>    `REDIS_PORT=`
+>    
+>    *Variables para el envío de correo (Mailtrap en este caso, que sirve para testear el envío de correos)*
+>    `MAIL_MAILER=`
+>    `MAIL_HOST=`
+>    `MAIL_PORT=`
+>    `MAIL_USERNAME=`
+>    `MAIL_PASSWORD=`
+>    `MAIL_ENCRYPTION=`
+>     
+>    *Variables para la conexión a la base de datos*
+>    `DB_CONNECTION=`
+>    `DB_HOST=`
+>    `DB_PORT=`
+>    `DB_DATABASE=`
+>    `DB_USERNAME=`
+>    `DB_PASSWORD=`
+>    
+>   ***Generar la Application Key***
+>    `php artisan key:generate`
+>    *Verificar que en el archivo .env exista la variable APP_KEY*   
+>    
+>    ***Ejecutar los migrates***
+>    `php artisan migrate`
+>
+> ***Iniciar el Proyecto***
+>  `php artisan serve`
+>  
+>  Si todo sale bien podemos acceder a nuestro proyecto en   la URL http://127.0.0.1:8000
 
-## Learning Laravel
+## ¿Qué hace? y ¿Cómo lo hace?
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Se cuenta con 3 endpoints disponibles para poder realizar las pruebas, La URL base para pruebas locales es http://127.0.0.1:8000
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Endpoint | Tipo | Descripción |
+|--|--|--|
+|{url_base}/api/crearCuenta  | POST | Permite generar una nueva cuenta para poder efectuar depositos y retiros de dinero  |
+|{url_base}/api/depositar  | POST | Permite realizar el depósito de fondos a la cuenta  |
+|{url_base}/api/retirar | POST | Permite realizar el retiro de dinero de la cuenta.|
 
-## Laravel Sponsors
+Notas:
+- En caso de intentar realizar un retiro que deja la cuenta en 0 la operación se bloquea.
+- En caso de realizar más de 3 intentos de retiro los cuales dejan saldo deudor se realiza el envío de un email con una oferta de préstamo.
+- En caso de rebasar el limite diario de $10,000 se envía un correo con las operaciones de las últimas 48 horas al director del banco y en caso de tratarse de un retiro este se bloquea.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Ejemplos de las peticiones
 
-### Premium Partners
+Para consultar el consumo de los endpoints está disponible la documentación con ejemplos de peticiones:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+https://documenter.getpostman.com/view/228994/Uyxbpowe
 
-## Contributing
+## Pruebas Unitarias
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Para ejecutar las pruebas es necesario ejecutar el siguiente comando:
+`php artisan test`
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Si se requiere generar el reporte se tiene que ejecutar el comando agregando la opción  *--coverage-html reports/*
+`php artisan test --coverage-html reports/`

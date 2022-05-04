@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('/crearCuenta', 'App\Http\Controllers\AccountController@crearCuenta');
+Route::post('/depositar', 'App\Http\Controllers\AccountController@depositar');
+Route::post('/retirar', 'App\Http\Controllers\AccountController@retirar');
