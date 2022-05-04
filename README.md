@@ -31,7 +31,9 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    *Variables para el procesamiento de colas (Redis en este caso)*
 >
 >    `QUEUE_CONNECTION=redis`
->
+>    
+>    `EVENT_PROJECTOR_QUEUE_NAME=projector-queue`
+>    
 >    `REDIS_HOST=`
 >
 >    `REDIS_PASSWORD=`
