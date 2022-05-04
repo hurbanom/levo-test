@@ -20,6 +20,12 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    `composer install`
 >    
 >    ***Crear la base de datos en PostgreSQL / MySQL***
+>
+>   ***Generar archivo .env***
+>    `cp .env.example .env`
+>    
+>   ***Generar la Application Key***
+>    `php artisan key:generate`
 >    
 >    ***Generar el archivo .env y agregar las variables de entorno necesarias***
 >    *Variables para el procesamiento de colas (Redis en este caso)*
@@ -61,10 +67,6 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    
 >    `DB_PASSWORD=`
 >    
->   ***Generar la Application Key***
->    `cp .env.example .env`
->    
->    `php artisan key:generate`
 >    *Verificar que en el archivo .env exista la variable APP_KEY*   
 >    
 >    ***Ejecutar los migrates***
