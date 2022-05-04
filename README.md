@@ -67,8 +67,6 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    
 >    `DB_PASSWORD=`
 >    
->    *Verificar que en el archivo .env exista la variable APP_KEY*   
->    
 >    ***Ejecutar los migrates***
 >    `php artisan migrate`
 >
