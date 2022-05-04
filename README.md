@@ -96,6 +96,11 @@ Para consultar el consumo de los endpoints está disponible la documentación co
 
 https://documenter.getpostman.com/view/228994/Uyxbpowe
 
+## Queues
+
+Para procesar las colas de envío de emails es necesario ejecutar el siguiente comando
+`php artisan queue:work --queue=projector-queue`
+
 ## Pruebas Unitarias
 
 Para ejecutar las pruebas es necesario ejecutar el siguiente comando:
