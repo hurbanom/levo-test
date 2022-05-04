@@ -117,6 +117,8 @@ Si se requiere generar el reporte se tiene que ejecutar el comando agregando la 
 Si las pruebas se ejecutan exitosamente se mostrará el siguiente resultado:
 ![](https://github.com/hurbanom/levo-test/blob/master/public/images/pruebas-exitosas.png)
 
+![](https://github.com/hurbanom/levo-test/blob/master/public/images/resultado-pruebas.png)
+
 En ocasiones al ejecutar las pruebas se visualiza el siguiente error:
 ![](https://github.com/hurbanom/levo-test/blob/master/public/images/pruebas-fallidas.png)
 
