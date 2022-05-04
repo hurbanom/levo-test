@@ -113,3 +113,11 @@ Para ejecutar las pruebas es necesario ejecutar el siguiente comando:
 
 Si se requiere generar el reporte se tiene que ejecutar el comando agregando la opción  *--coverage-html reports/*
 `php artisan test --coverage-html reports/`
+
+Si las pruebas se ejecutan exitosamente se mostrará el siguiente resultado:
+![](https://github.com/hurbanom/levo-test/blob/master/public/images/pruebas-exitosas.png)
+
+En ocasiones al ejecutar las pruebas se visualiza el siguiente error:
+![](https://github.com/hurbanom/levo-test/blob/master/public/images/pruebas-fallidas.png)
+
+Esto es por que varia por segundos la creación del registro y la prueba termina fallando, con solo volver a ejecutar la prueba el error debería desaparecer
