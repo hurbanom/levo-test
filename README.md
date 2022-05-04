@@ -37,7 +37,10 @@ El sitio está construido en Laravel, por lo que antes de clonar el repositorio 
 >    `REDIS_PASSWORD=`
 >
 >    `REDIS_PORT=`
->
+>    
+>    `REDIS_DB=1`
+>    
+>    `REDIS_DB_CACHE=2`
 >    
 >    *Variables para el envío de correo (Mailtrap en este caso, que sirve para testear el envío de correos)*
 >
